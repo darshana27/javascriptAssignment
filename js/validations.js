@@ -97,11 +97,13 @@ function isName(){
 
 /*********Validation for Gender***********/
 
-	rdMale=document.getElementById("residence1");
-	rdFemale=document.getElementById("residence2");
+	rdMale=document.getElementById("residence1").value;
+	rdFemale=document.getElementById("residence2").value;
 
 	if(rdMale.checked==false && rdFemale==false){
-		alert("Please select your gender");
+		alert("Please select your gender")
+		document.getElementById("ErrGender").style.display="block";
+		document.getElementById("ErrGender").innerHTML="Please select your gender";
 		return false;
 	}
 
@@ -132,7 +134,7 @@ function isLeap(year){
 function isFeb(){
 	month=document.getElementById("month");
 	v_month=month.options[month.selectedIndex].value;
-	date=document.getElementById("date");
+	day=document.getElementById("day");
 	year=document.getElementById("year");
 	v_year=year.options[year.selectedIndex].value;
 	console.log(v_year);
@@ -140,12 +142,12 @@ function isFeb(){
 		alert("if condition");
 	}
 	if(v_month=='02' && date.length==31){	
-		date=document.getElementById("date");date=document.getElementById("date");
-		date.remove(30);
-		date.remove(29);
+		day=document.getElementById("day");day=document.getElementById("day");
+		day.remove(30);
+		day.remove(29);
 	}
 	else if(v_month == '02' && date.length == 30){
-				date.remove(29);
+				day.remove(29);
 	}
 	else if(v_month=='01' || v_month=='03' || v_month=='05' || v_month=='07' || v_month=='08' || v_month=='10' || v_month=='12'){
 		if(date.length==29){

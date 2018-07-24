@@ -139,56 +139,56 @@
 					<li class="fileds">
 						<div class="name_fileds">
 							<label>First Name</label>
-							<input name="firstname" id="fname" type="text" onkeyup="isName()"/> 
-							<p id="ErrFname" style="display:none;color:red;">abc</p>
+							<input name="firstname" id="fname" type="text" onkeyup="isFName()"/> 
+							<p id="ErrFname" style="display:none;color:red;"></p>
 						</div>
 						<div class="name_fileds">
 							<label>Last Name</label>
-							<input name="lastname" id="lname" type="text" onkeyup="isName()"/>
+							<input name="lastname" id="lname" type="text" onkeyup="isLName()"/>
 							<p id="ErrLname" style="display:none;color:red;"></p> 
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="phone_fileds">
 							<label>Phone No</label>
-							<input name="phone" type="text" id="phno"/> 
+							<input name="phone" type="text" id="phno" onkeyup="isPhone()"/> 
 							<p id="ErrPhone" style="display:none;color:red;"></p>
 						</div>
 						<div class="phone_fileds">
 							<label>Office No</label>
-							<input name="office" type="text" id="officeno"/>
+							<input name="office" type="text" id="officeno" onkeyup="isOfficeNumber()"/>
 							<p id="ErrOffice" style="display:none;color:red;"></p> 
 						</div>
 					</li>					
 					<li class="fileds">
 						<div class="email_fileds">
 							<label>Email</label>
-							<input name="email" type="text" id="emaidid"/> 
-							<p id="ErrEmail"></p>
+							<input name="email" type="text" id="emailid" onkeyup="isEmail()"/> 
+							<p id="ErrEmail" style="display:none;color:red;"></p>
 						</div>
 						<div class="pass_fileds">
 							<label>Password</label>
-							<input name="password" type="text" id="pwd"/>
-							<p id="ErrPassword"></p> 
+							<input name="password" type="text" id="pwd" onkeyup="isPwd()"/>
+							<p id="ErrPassword" style="display:none;color:red;"></p> 
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="pass_fileds">
 							<label>Confirm Password</label>
-							<input name="password" type="text" id="cnfPwd"/> 
-							<p id="ErrCnfPwd"></p>
+							<input name="password" type="text" id="cnfPwd" onkeyup="isCnfPwd()"/> 
+							<p id="ErrCnfPwd" style="display:none;color:red;"></p>
 						</div>
 							<div class="dob_fileds selectbox">
 								<label>My birthdate is</label>
 
 								<ul>
 									<li>
-										<select name="year" class="select year" id="selectid" onchange="isFeb()" onclick="getYears()">
+										<select name="year" class="select year" id="year" onclick="getYears()" onchange="isFeb()">
 											<!-- <option value="volvo">Year</option> -->
 										</select>
 									</li>
 									<li>
-										<select name="month" id="month" class="select month">
+										<select name="month" id="month" class="select month" onchange="isFeb()">
 											<option value="01">Jan</option>
 											<option value="02">Feb</option>
 											<option value="03">March</option>
@@ -204,7 +204,7 @@
 										</select>
 									</li>
 									<li>
-										<select name="day" id="day" class="select day">
+										<select name="day" id="day" class="select day" onchange="isFeb()">
 											<option value="1">01</option>
 											<option value="2">02</option>
 											<option value="3">03</option>
@@ -241,6 +241,7 @@
 										</select>
 									</li>
 								</ul>
+								<p id="ErrBday" style="display:none;color:red"></p>
 							</div>
 					</li>
 					<li class="fileds">
@@ -250,57 +251,59 @@
 						</div>
 						<div class="gender_fileds">
 							<label>Gender</label>
-							<ul onblur="isEmpty(this.value)">
-								<li><input type="radio" class="radio " id="residence1" name="radio" /><label class="radio-label" for="residence1">Male</label></li>
-								<li><input type="radio" class="radio" id="residence2" name="radio" /><label class="radio-label" for="residence2">Female</label></li>
+							<ul>
+								<li><input type="radio" class="radio " id="residence1" name="radio" onchange="isChecked()"/><label class="radio-label" for="residence1">Male</label></li>
+								<li><input type="radio" class="radio" id="residence2" name="radio" onchange="isChecked()"/><label class="radio-label" for="residence2">Female</label></li>
 							</ul>
-							<p id="ErrGender"></p>	
+							<p id="ErrGender" style="display:none;color:red;"></p>	
 						</div>
 					</li>
 					<li class="fileds">
 						<div class="interest_fileds">
 						<label>Interest</label>
 							<ul>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample18" /> <label class="css-label" for="checkbox_sample18">Biking</label></li>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample19" /> <label class="css-label" for="checkbox_sample19">Reading</label></li>
-								<li><input type="checkbox" class="checkbox" id="checkbox_sample20" /> <label class="css-label" for="checkbox_sample20">Playing</label></li>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample18" onchange="isChecked()"/> <label class="css-label" for="checkbox_sample18">Biking</label></li>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample19" onchange="isChecked()"/> <label class="css-label" for="checkbox_sample19">Reading</label></li>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample20" onchange="isChecked()"/> <label class="css-label" for="checkbox_sample20">Playing</label></li>
 							</ul>
+							<p id="ErrInterest"  style="display:none;color:red;"></p>
 						</div>
-						<div class="about_you_fileds" id="aboutYou">
+						<div class="about_you_fileds">
 						<label>About you</label>
-						<textarea></textarea>
-						<p id="ErrAboutYou"></p>
+						<textarea id="aboutYou" onkeyup="isAbout()"></textarea>
+						<p id="ErrAboutYou" style="display:none;color:red;"></p>
 						</div>						
 					</li>
 					<li class="fileds">
 						<div class="country_fileds selectbox">
 							<label>Country</label>
-							<select name="gender" class="select">
+							<select name="gender" class="select" id="country" onchange="isCountry()">
 								<option value="Select Country">Select Country</option>
 								<option value="USA">USA</option>
 								<option value="India">India</option>
 								<option value="Australia">Australia</option>
 								<option value="Other">Other</option>
 							</select>
+							<p id="ErrCountry" style="display: none;color:red;"></p>
 						</div>						
 						<div class="other_country_fileds">
 							<label>&nbsp;</label>
-							<input name="other" type="text">
-							<p id="ErrOther"></p>
+							<input name="other" id="other" type="text" style="display:none;" onkeyup="isOther()">
+							<p id="ErrOther" style="display: none;color:red;"></p>
 						</div>						
 					</li>
 					<li class="fileds">
 						<div class="upload_fileds">
 							<label>Upload File</label>
-							<input id="uploadFile" type="file" placeholder="Choose File">
+							<input id="uploadFile" type="file" placeholder="Choose File" onchange="isFile()">
 							<a href="#" class="add_more">Add more</a>
-							<p id="ErrAddFiles"></p>
+							<p id="ErrAddFiles" style="display: none;color:red;"></p>
 						</div>						
 					</li>
 				</ul>
 				<div class="next_btn_block">
 					<div class="next_btn">
-						<a href="partners_preference_form.html">Proceed to Step 2 <span><img src="images/small_triangle.png" alt="small_triangle"> </span></a>
+						<a onclick="validate()">Proceed to Step 2 <span><img src="images/small_triangle.png" alt="small_triangle"> </span></a>
 					</div>
 				</div>
 			</div>
